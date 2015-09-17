@@ -1,4 +1,4 @@
-# Angular + Webpack
+# Angular + Webpack + React
 
 ## Features
 
