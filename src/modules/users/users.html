@@ -1,0 +1,6 @@
+<div class="jumbotron">
+	<h1> List user </h1>
+	<ul>
+		 <li ng-repeat="user in vm.users"> <a ui-sref="user({userId: user.id})"> {{user.name}} </a></li>
+	</ul>
+</div>

@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1> Home page </h1>
+    <div ui-view></div>
+    <button class="btn btn-default" ng-click="vm.changeMode()"> Change mode </button>
+    <button class="btn btn-success" ng-click="vm.refresh()"> Refresh data </button>
+    <button class="btn btn-default" ng-click="vm.countWatcher()"> Count watchers </button>
+    <p> Total watchers: {{vm.totalWatcher}} </p>
+    <div class="row pWall">
+        <div ng-if="vm.react" class="reactjs col-12 col-lg-12 col-sm-12">
+            <h3> ReactJs</h3>
+         	<my-list data="vm.test.data"></my-list>
+        </div>
+        <div ng-if="!vm.react" class="angularjs col-12 col-lg-12 col-sm-12">
+            <h3> ---- Angular ----- </h3>
+            <table>
+                <tr ng-repeat="(key, col) in vm.test.data">
+                    <td> {{col[0]}} </td>
+                    <td> {{col[1]}} </td>
+                    <td> {{col[2]}} </td>
+                    <td> {{col[3]}} </td>
+                    <td> {{col[4]}} </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>

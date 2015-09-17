@@ -1,0 +1,40 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --history-api-fallback --progress --colors --content-base src --hot",
+    "build": "NODE_ENV=production webpack --config webpack.build.js  -p && cp src/listuser.json dist/"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "ui-router": "0.0.1",
+    "angular": "~1.4.5",
+    "style-loader": "~0.12.3",
+    "css-loader": "~0.17.0",
+    "webpack": "~1.12.1",
+    "babel-core": "~5.8.23",
+    "babel-loader": "~5.3.2",
+    "raw-loader": "~0.5.1",
+    "json-loader": "~0.5.2",
+    "bootstrap": "~3.3.5",
+    "angular-ui-router": "~0.2.15",
+    "babel-runtime": "~5.8.20",
+    "extract-text-webpack-plugin": "~0.8.2",
+    "node-libs-browser": "~0.5.2",
+    "postcss-loader": "~0.6.0",
+    "autoprefixer-core": "~6.0.1",
+    "html-webpack-plugin": "~1.6.1",
+    "ngreact": "~0.1.7",
+    "react": "~0.13.3",
+    "jsx-loader": "~0.13.2",
+    "oclazyload": "~1.0.4",
+    "ng-annotate": "~1.0.2"
+  },
+  "dependencies": {
+    "json-loader": "~0.5.2",
+    "file-loader": "~0.8.4"
+  }
+}

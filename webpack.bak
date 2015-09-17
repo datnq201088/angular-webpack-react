@@ -1,0 +1,43 @@
+var webpack = require('webpack');
+var path = require('path');
+var APP = __dirname + '/src';
+var bower_dir = __dirname + '/bower_components';
+
+var config = {
+  addVendor: function (name, path) {
+    this.resolve.alias[name] = path;
+    this.module.noParse.push(new RegExp('^' + name + '$'));
+  },
+  context: APP,
+  entry: { app: ['webpack/hot/dev-server', './app.js']},
+  resolve: { alias: {} },
+  output: {
+
+    // If in production mode we put the files into the dist folder instead
+    path: process.env.NODE_ENV === 'production' ? './dist' : APP,
+    filename: 'bundle.js'
+  },
+  module: {
+    noParse: [],
+    loaders: [
+      { test: /\.js$/, exclude: '/node_modules|bower_components', loader: 'babel-loader' },
+      { test: /\.html$/, exclude: '/node_modules|bower_components', loader: 'raw-loader' },
+      { test: /\.css$/, exclude: '/node_modules', loader: 'style-loader!css-loader'},
+      { test: /\.json$/, exclude: '/node_modules|bower_components', loader: 'json-loader' },
+      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file'}
+    ]
+  },
+  plugins: [
+  	 new webpack.NoErrorsPlugin(),
+  	 new webpack.HotModuleReplacementPlugin(),
+     new webpack.optimize.UglifyJsPlugin()
+  ],
+  devServer: {
+
+  }
+};
+
+// config.addVendor('react-bootstrap', bower_dir + '/react-bootstrap/react-bootstrap.min.js');
+// config.addVendor('bootstrap.css', bower_dir + '/bootstrap/dist/css/bootstrap.css');
+
+module.exports = config;
